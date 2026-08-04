@@ -10,8 +10,16 @@ void app_main(void){
         .DB = {GPIO_NUM_26, GPIO_NUM_25, GPIO_NUM_33, GPIO_NUM_32}
     }; 
 
-    LCD_init(&LCD_CONFIG);
+    LCD_init(&LCD_CONFIG, LCD_4BIT);
 
     LCD_print_char(&LCD_CONFIG, 'X');
+
+    LCD_shift_cursor(&LCD_CONFIG, LCD_RIGHT);
+
+    LCD_print_char(&LCD_CONFIG, 'Y');
+
+    LCD_print(&LCD_CONFIG, "ABCD E F");
+
+    
 
 }

@@ -40,7 +40,26 @@ typedef struct Pinout_struct {
     gpio_num_t DB[4];
 } LCD_Pinout;
 
+void LCD_clear_display(const LCD_Pinout *LCD_CONFIG);
+
+void LCD_shift_display(const LCD_Pinout *LCD_CONFIG, LCD_Direction direction);
+
+void LCD_shift_cursor(const LCD_Pinout *LCD_CONFIG, LCD_Direction direction);
+
 void LCD_print_char(const LCD_Pinout *LCD_CONFIG, char letter);
-void LCD_init(const LCD_Pinout *LCD_CONFIG);
+
+int LCD_set_cursor(const LCD_Pinout *LCD_CONFIG, int row, int column);
+
+void LCD_cursor_auto_direction(const LCD_Pinout *LCD_CONFIG, LCD_Direction direction);
+
+void LCD_display(const LCD_Pinout *LCD_CONFIG, bool display);
+
+void LCD_cursor(const LCD_Pinout *LCD_CONFIG, bool cursor);
+
+void LCD_cursor_blink(const LCD_Pinout *LCD_CONFIG, bool cursor_mode);
+
+void LCD_init(const LCD_Pinout *LCD_CONFIG, LCD_DataLength DL);
+
+int LCD_print(const LCD_Pinout *LCD_CONFIG, char *buffer);
 
 #endif
